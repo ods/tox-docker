@@ -1,4 +1,4 @@
-ARG ALPINE_VERSION=3.13
+ARG ALPINE_VERSION=3.14
 FROM alpine:$ALPINE_VERSION as pyenv-base
 
 ENV PYENV_ROOT=/pyenv
@@ -16,7 +16,7 @@ CMD ["/bin/bash"]
 
 
 FROM pyenv-base as pyenv
-ARG PYTHON_VERSIONS="3.9.1 3.8.7 3.7.9 3.6.12"
+ARG PYTHON_VERSIONS="3.10.0 3.9.7 3.8.12 3.7.12"
 
 RUN for pyver in $PYTHON_VERSIONS; do pyenv install $pyver; done \
     && pyenv global $PYTHON_VERSIONS
