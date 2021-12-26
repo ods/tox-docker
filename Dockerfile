@@ -18,7 +18,7 @@ RUN apt-get update -y \
 
 
 FROM pyenv-base as pyenv
-ARG PYTHON_VERSIONS="3.10.0 3.9.7 3.8.12 3.7.12"
+ARG PYTHON_VERSIONS="3.10.1 3.9.9 3.8.12 3.7.12"
 
 RUN for pyver in $PYTHON_VERSIONS; do \
         pyenv install $pyver; \
@@ -30,6 +30,6 @@ CMD ["python"]
 
 FROM pyenv as tox
 
-RUN pip install tox
+RUN pip install --no-cache-dir tox
 
 CMD ["tox"]
