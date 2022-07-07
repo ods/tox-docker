@@ -18,7 +18,7 @@ RUN apt-get update -y \
 
 
 FROM pyenv-base as pyenv
-ARG PYTHON_VERSIONS="3.10.1 3.9.9 3.8.12 3.7.12"
+ARG PYTHON_VERSIONS="3.10.5 3.9.13 3.8.13"
 
 RUN for pyver in $PYTHON_VERSIONS; do \
         pyenv install $pyver; \
